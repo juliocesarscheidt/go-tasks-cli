@@ -10,33 +10,45 @@ mv go-tasks-cli-1.0.0/bin/go-tasks /usr/local/bin/go-tasks && \
   chmod u+x /usr/local/bin/go-tasks
 ```
 
-> Running locally
+> Running
 
 ```bash
-go build -ldflags="-s -w" -o ./bin/go-tasks .
+go-tasks help
 
-./bin/go-tasks help
-
-./bin/go-tasks --version
+go-tasks --version
 # go-tasks version: v1.0.0
 
-./bin/go-tasks tasks
-# Available Commands:
-# get          get.
+go-tasks tasks --help
 
-./bin/go-tasks tasks --help
+go-tasks tasks create --name TEST1
+go-tasks tasks create --name TEST2 --done true
 
-./bin/go-tasks tasks create --name TESTE1
-./bin/go-tasks tasks create --name TESTE2 --done true
+go-tasks tasks list
++-------+-------+-------------------------------------+-------------------------------------+------------+
+| NAME  | DONE  | CREATED AT                          | UPDATED AT                          | DELETED AT |
++-------+-------+-------------------------------------+-------------------------------------+------------+
+| TEST2 | true  | 2023-03-04T14:09:19.81755573-03:00  | 2023-03-04T14:09:19.81755573-03:00  |            |
+| TEST1 | false | 2023-03-04T14:09:17.671884679-03:00 | 2023-03-04T14:09:17.671884679-03:00 |            |
++-------+-------+-------------------------------------+-------------------------------------+------------+
 
-./bin/go-tasks tasks list
-
-./bin/go-tasks tasks get
-# Error required flag(s) "name" not set
-
-./bin/go-tasks tasks get --name
-# Error flag needs an argument: --name
-
-./bin/go-tasks tasks get --name TESTE
-# Task Name :: TESTE
+go-tasks tasks get --name TEST1
++-------+-------+-------------------------------------+-------------------------------------+------------+
+| NAME  | DONE  | CREATED AT                          | UPDATED AT                          | DELETED AT |
++-------+-------+-------------------------------------+-------------------------------------+------------+
+| TEST1 | false | 2023-03-04T14:09:17.671884679-03:00 | 2023-03-04T14:09:17.671884679-03:00 |            |
++-------+-------+-------------------------------------+-------------------------------------+------------+
 ```
+
+> Build locally
+
+```bash
+go build -ldflags="-s -w" -o go-tasks .
+```
+
+> Uninstall
+
+```
+rm -f /usr/local/bin/go-tasks
+rm -f /tmp/go_tasks.db
+```
+
