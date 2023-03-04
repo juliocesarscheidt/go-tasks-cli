@@ -1,34 +1,30 @@
+# Go tasks CLI with Cobra
 
 ```bash
+go build -ldflags="-s -w" -o ./bin/go-tasks .
 
-go build -ldflags="-s -w" -o ./go-tasks .
+./bin/go-tasks help
 
-./go-tasks help
-
-./go-tasks --version
+./bin/go-tasks --version
 # go-tasks version: v1.0.0
 
-./go-tasks tasks
+./bin/go-tasks tasks
 # Available Commands:
 # get          get.
 
-./go-tasks tasks --help
+./bin/go-tasks tasks --help
 
+./bin/go-tasks tasks create --name TESTE1
+./bin/go-tasks tasks create --name TESTE2 --done true
 
-./go-tasks tasks create --name TESTE1
-./go-tasks tasks create --name TESTE2 --done true
+./bin/go-tasks tasks list
 
-
-./go-tasks tasks list
-
-
-./go-tasks tasks get
+./bin/go-tasks tasks get
 # Error required flag(s) "name" not set
 
-./go-tasks tasks get --name
+./bin/go-tasks tasks get --name
 # Error flag needs an argument: --name
 
-./go-tasks tasks get --name TESTE
+./bin/go-tasks tasks get --name TESTE
 # Task Name :: TESTE
-
 ```
