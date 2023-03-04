@@ -83,7 +83,7 @@ func main() {
 		panic(err)
 	}
 	db.SetMaxOpenConns(1)
-	db.Exec(`CREATE TABLE tasks (name VARCHAR(255), done TINYINT default 0, created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, updated_at DATETIME DEFAULT NULL, deleted_at DATETIME DEFAULT NULL)`)
+	db.Exec(`CREATE TABLE IF NOT EXISTS tasks (name VARCHAR(255), done TINYINT default 0, created_at DATETIME DEFAULT CURRENT_TIMESTAMP NOT NULL, updated_at DATETIME DEFAULT NULL, deleted_at DATETIME DEFAULT NULL)`)
 
 	rootCmd := &cobra.Command{
 		Use:   "go-tasks",
