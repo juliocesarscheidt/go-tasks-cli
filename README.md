@@ -3,11 +3,14 @@
 > Install
 
 ```bash
-curl -L --url https://github.com/juliocesarscheidt/go-tasks-cli/archive/refs/tags/v1.0.0.tar.gz --output go-tasks-cli-v1.0.0.tar.gz
+curl -L --url https://github.com/juliocesarscheidt/go-tasks-cli/archive/refs/tags/v1.0.0.tar.gz \
+  --output go-tasks-cli-v1.0.0.tar.gz
 tar -xzvf go-tasks-cli-v1.0.0.tar.gz
-mv go-tasks-cli-1.0.0/bin/go-tasks /usr/local/bin/go-tasks
-chmod u+x /usr/local/bin/go-tasks
+mv go-tasks-cli-1.0.0/bin/go-tasks /usr/local/bin/go-tasks && \
+  chmod u+x /usr/local/bin/go-tasks
 ```
+
+> Running locally
 
 ```bash
 go build -ldflags="-s -w" -o ./bin/go-tasks .
