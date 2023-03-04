@@ -78,7 +78,7 @@ func createTask(db *sql.DB, name string, done bool) error {
 }
 
 func main() {
-	db, err := sql.Open("sqlite3", "file:./go_tasks.db")
+	db, err := sql.Open("sqlite3", "file:/tmp/go_tasks.db")
 	if err != nil {
 		panic(err)
 	}
